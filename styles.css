@@ -22,7 +22,7 @@ body {
 
 /* Header */
 header {
-    background: #0066FF;
+    background: linear-gradient(to right, #004D40, #00695C);
     color: white;
     padding: 1.5rem 0;
     position: sticky;
@@ -42,7 +42,7 @@ header .container {
     font-weight: 700;
     letter-spacing: -1px;
     text-transform: uppercase;
-    color: #FFD700;
+    color: #FF7F50;
 }
 
 nav ul {
@@ -64,13 +64,13 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    color: #FFD700;
+    color: #FF7F50;
     transform: scale(1.05);
 }
 
 .cart-icon {
-    background: #FFD700;
-    color: #0066FF;
+    background: #FF7F50;
+    color: #FFFFFF;
     padding: 0.4rem 1rem;
     border-radius: 30px;
     font-weight: bold;
@@ -81,7 +81,7 @@ nav ul li a:hover {
 
 .cart-icon:hover {
     transform: scale(1.1);
-    background: #FFCA00;
+    background: #FF704D;
 }
 
 /* Hero Section */
@@ -105,7 +105,7 @@ nav ul li a:hover {
     left: 0;
     width: 100%;
     height: 30%;
-    background: linear-gradient(to top, rgba(0, 102, 255, 0.8), transparent);
+    background: linear-gradient(to top, rgba(0, 105, 92, 0.8), transparent);
     z-index: 1;
 }
 
@@ -131,8 +131,8 @@ nav ul li a:hover {
 
 .btn {
     display: inline-block;
-    background: #FFD700;
-    color: #0066FF;
+    background: #FF7F50;
+    color: #FFFFFF;
     padding: 1rem 3.5rem;
     text-decoration: none;
     border-radius: 50px;
@@ -144,17 +144,51 @@ nav ul li a:hover {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     position: relative;
     z-index: 2;
+    overflow: hidden;
+}
+
+.btn::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 5px;
+    height: 5px;
+    background: rgba(255, 255, 255, 0.5);
+    opacity: 0;
+    border-radius: 100%;
+    transform: scale(1, 1) translate(-50%);
+    transform-origin: 50% 50%;
+}
+
+.btn:focus:not(:active)::after {
+    animation: ripple 1s ease-out;
+}
+
+@keyframes ripple {
+    0% {
+        transform: scale(0, 0);
+        opacity: 0.5;
+    }
+    20% {
+        transform: scale(25, 25);
+        opacity: 0.3;
+    }
+    100% {
+        opacity: 0;
+        transform: scale(40, 40);
+    }
 }
 
 .btn:hover {
-    background: #FFCA00;
+    background: #FF704D;
     transform: translateY(-5px);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
 }
 
 .btn-small {
     display: inline-block;
-    background: #0066FF;
+    background: #00695C;
     color: white;
     padding: 0.6rem 1.5rem;
     text-decoration: none;
@@ -167,7 +201,7 @@ nav ul li a:hover {
 }
 
 .btn-small:hover {
-    background: #0055CC;
+    background: #004D40;
     transform: translateY(-3px);
     box-shadow: 0 5px 12px rgba(0, 0, 0, 0.3);
 }
@@ -194,7 +228,7 @@ nav ul li a:hover {
 .products h2 {
     text-align: center;
     margin-bottom: 4rem;
-    color: #0066FF;
+    color: #00695C;
     font-size: 3rem;
     font-weight: 800;
     text-transform: uppercase;
@@ -213,7 +247,7 @@ nav ul li a:hover {
     transform: translateX(-50%);
     width: 100px;
     height: 5px;
-    background: #FFD700;
+    background: #FF7F50;
     border-radius: 2px;
 }
 
@@ -221,6 +255,9 @@ nav ul li a:hover {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2.5rem;
+    padding: 1rem;
+    background: rgba(0, 105, 92, 0.03);
+    border-radius: 15px;
 }
 
 .product-item {
@@ -232,13 +269,13 @@ nav ul li a:hover {
     padding: 1.5rem;
     transition: transform 0.3s, box-shadow 0.3s;
     position: relative;
-    border: 1px solid rgba(0, 102, 255, 0.1);
+    border: 1px solid rgba(0, 105, 92, 0.1);
 }
 
 .product-item:hover {
     transform: translateY(-10px);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-    border-color: rgba(0, 102, 255, 0.3);
+    border-color: rgba(0, 105, 92, 0.3);
 }
 
 .product-item img {
@@ -248,7 +285,7 @@ nav ul li a:hover {
     border-radius: 10px;
     margin-bottom: 1rem;
     transition: transform 0.5s;
-    border: 3px solid #FFD700;
+    border: 3px solid #FF7F50;
 }
 
 .product-item:hover img {
@@ -257,13 +294,13 @@ nav ul li a:hover {
 
 .product-item h3 {
     margin: 0.8rem 0 0.5rem;
-    color: #0066FF;
+    color: #00695C;
     font-size: 1.4rem;
     font-weight: 600;
 }
 
 .product-item p {
-    color: #FF6F61;
+    color: #FF5252;
     margin-bottom: 0.8rem;
     font-size: 1.2rem;
     font-weight: 500;
@@ -274,7 +311,7 @@ nav ul li a:hover {
     position: absolute;
     top: 10px;
     right: 10px;
-    background: #FF6F61;
+    background: #FF5252;
     color: white;
     padding: 0.3rem 0.8rem;
     border-radius: 20px;
@@ -282,10 +319,23 @@ nav ul li a:hover {
     font-weight: bold;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     display: none;
+    z-index: 10;
 }
 
 .product-item:nth-child(2)::before {
     display: block;
+}
+
+.product-item:nth-child(5)::before {
+    content: 'NEW';
+    display: block;
+    background: #00C853;
+}
+
+.product-item:nth-child(7)::before {
+    content: 'SALE';
+    display: block;
+    background: #FF1744;
 }
 
 /* About Section */
@@ -297,7 +347,7 @@ nav ul li a:hover {
 .about h2 {
     text-align: center;
     margin-bottom: 4rem;
-    color: #0066FF;
+    color: #00695C;
     font-size: 3rem;
     font-weight: 800;
     text-transform: uppercase;
@@ -316,7 +366,7 @@ nav ul li a:hover {
     transform: translateX(-50%);
     width: 100px;
     height: 5px;
-    background: #FFD700;
+    background: #FF7F50;
     border-radius: 2px;
 }
 
@@ -330,7 +380,7 @@ nav ul li a:hover {
     padding: 3rem;
     border-radius: 15px;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-    border: 1px solid rgba(0, 102, 255, 0.1);
+    border: 1px solid rgba(0, 105, 92, 0.1);
 }
 
 .about-content img {
@@ -338,7 +388,7 @@ nav ul li a:hover {
     height: auto;
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    border: 5px solid #FFD700;
+    border: 5px solid #FF7F50;
     transition: transform 0.3s;
 }
 
@@ -363,7 +413,7 @@ nav ul li a:hover {
 .contact h2 {
     text-align: center;
     margin-bottom: 4rem;
-    color: #0066FF;
+    color: #00695C;
     font-size: 3rem;
     font-weight: 800;
     text-transform: uppercase;
@@ -382,7 +432,7 @@ nav ul li a:hover {
     transform: translateX(-50%);
     width: 100px;
     height: 5px;
-    background: #FFD700;
+    background: #FF7F50;
     border-radius: 2px;
 }
 
@@ -396,12 +446,12 @@ nav ul li a:hover {
     padding: 3rem;
     border-radius: 15px;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-    border: 1px solid rgba(0, 102, 255, 0.2);
+    border: 1px solid rgba(0, 105, 92, 0.2);
 }
 
 .contact input, .contact textarea {
     padding: 1rem;
-    border: 1px solid rgba(0, 102, 255, 0.3);
+    border: 1px solid rgba(0, 105, 92, 0.3);
     border-radius: 10px;
     font-size: 1.1rem;
     background: #F9FAFB;
@@ -411,8 +461,8 @@ nav ul li a:hover {
 
 .contact input:focus, .contact textarea:focus {
     outline: none;
-    border-color: #0066FF;
-    box-shadow: 0 0 0 3px rgba(0, 102, 255, 0.2);
+    border-color: #00695C;
+    box-shadow: 0 0 0 3px rgba(0, 105, 92, 0.2);
 }
 
 .contact textarea {
@@ -422,7 +472,7 @@ nav ul li a:hover {
 
 /* Footer */
 footer {
-    background: #0066FF;
+    background: linear-gradient(to right, #004D40, #00695C);
     color: white;
     padding: 2.5rem 0;
     text-align: center;
@@ -449,7 +499,7 @@ footer .container {
 }
 
 .social-links a:hover {
-    color: #FFD700;
+    color: #FF7F50;
     transform: scale(1.2);
 }
 
